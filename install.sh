@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# termux-starter: safe installer (non-destructive)
-# - backups exist files (timestamp)
-# - installs essential packages
-# - provides basic profiles in ./profiles/
 set -euo pipefail
 
 PROGNAME="$(basename "$0")"
@@ -47,8 +43,8 @@ confirm() {
 
 # ensure running in Termux (simple check)
 if ! command -v termux-info >/dev/null 2>&1; then
-  echo "Sepertinya ini bukan lingkungan Termux atau termux-api belum terpasang."
-  echo "Lanjut? (disarankan jalankan di Termux)."
+  echo "maaf kemungkinan kamu tidak berada di aplikasi termux atau termux-api belum dipasang."
+  echo "lanjut? (disarankan jalankan di Termux)."
   if ! confirm "Lanjutkan install di lingkungan ini?"; then
     echo "Batal."
     exit 1
@@ -60,7 +56,7 @@ echo "Base dir: $BASEDIR"
 echo "Profile: $PROFILE"
 
 # update paket
-if confirm "Update paket dan install paket esensial (git, curl, python, proot-distro, openssh)?"; then
+if confirm "update paket dan install paket esensial (git, curl, python, proot-distro, openssh)?"; then
   pkg update -y || true
   pkg install -y git curl python proot-distro openssh clang make termux-api || true
 fi
@@ -115,25 +111,23 @@ link_dotfile "$DOTFILES_DIR/.profile" "$HOME/.profile" || true
 # apply profile specifics
 case "$PROFILE" in
   dev)
-    echo "Mengaktifkan profile: dev"
-    if confirm "Install paket tambahan untuk profile dev (git, nodejs, vim)?"; then
+    echo "mengaktifkan profile: dev"
+    if confirm "install paket tambahan untuk profile dev (git, nodejs, vim)?"; then
       pkg install -y nodejs vim || true
     fi
     ;;
   lite)
-    echo "Mengaktifkan profile: lite (konfigurasi ringan)"
+    echo "mengaktifkan profile: lite (konfigurasi ringan)"
     ;;
   kde-vnc)
-    echo "Profile kde-vnc dipilih — ini hanya menambahkan instruksi, tidak akan install KDE otomatis."
+    echo "profil kde-vnc dipilih — ini hanya menambahkan instruksi, dan tidak akan install KDE secara otomatis."
     cat > "$BASEDIR/docs/kde-proot.md" <<'MD'
 Panduan singkat menjalankan KDE di proot:
 1. Install proot-distro: pkg install proot-distro
-2. Pasang distro (mis. ubuntu): proot-distro install ubuntu-22.04
-3. Login: proot-distro login ubuntu-22.04
-4. Install KDE dependencies di dalam container (gunakan instruksi resmi)
-5. Jalankan X server di Android (termux-x11 atau VNC)
-MD
-    echo "Instruksi KDE disimpan di $BASEDIR/docs/kde-proot.md"
+2. Pasang distro (mis. ubuntu): proot-distro install ubuntu
+3. Login: pd login ubuntu
+4. Install kde dependencies di dalam container (cari aja tutorialnya banyak. usahakan cari tutor/instruksi resmi)
+    echo "Instruksi kde disimpan di >> $BASEDIR/docs/kde-proot.md"
     ;;
   *)
     echo "Profile default (tidak ada aksi khusus)."
