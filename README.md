@@ -20,7 +20,7 @@
 ## Quick install (one-line)
 ```bash
 pkg update -y && pkg install git curl -y
-bash <(curl -fsSL https://raw.githubusercontent.com/USERNAME/termux-starter/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/syaaikoo/termux-starter/refs/heads/main/install.sh)
 ```
 
 ## Struktur repo (ringkasan)
@@ -44,7 +44,7 @@ termux-starter/
 - Membuat direktori `~/dotfiles-termux` dan men-*backup* dotfiles lama (mis. `.bashrc`) ke `~/dotfiles-termux/backups/`.
 - Menyediakan opsi profile: `dev` (alat pengembang), `lite` (config ringan), `kde-vnc` (instruksi, tidak otomatis install KDE besar tanpa persetujuan).
 
-## Contoh penggunaan
+## Penggunaan
 - Install default:
 ```bash
 bash install.sh
@@ -64,7 +64,7 @@ bash install.sh --help
 - Jika ingin GUI via `termux-x11`, pastikan `termux-x11` terpasang dan minimal 3GB RAM tersedia untuk pengalaman lebih lancar.
 
 ## Contributing
-Terima kasih sudah mau kontribusi! Buka issue atau PR. Sertakan:
+terimakasih kasih sudah mau kontribusi! buka issue atau pr. Sertakan:
 - Device (merk + model)
 - Versi Android
 - Versi Termux (lihat `termux-info`)
