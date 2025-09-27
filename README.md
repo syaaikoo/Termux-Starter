@@ -1,21 +1,21 @@
 # termux-starter
 
-**termux-starter** adalah repo starter untuk mempercepat pengaturan environment Termux — cocok buat pemula dan power‑users yang mau setup cepat (tooling, dotfiles ringan, dan opsi profile seperti `dev`, `lite`, dan `kde-vnc`).
+**termux-starter** repo pertama yang ku buat untuk starter/mempercepat pengaturan environment termux kalian — cocok buat pemula dan power‑users yang mau setup cepat (tooling, dotfiles ringan, dan opsi profile seperti `dev`, `lite`, dan `kde-vnc`).
 
-> Catatan: skrip `install.sh` dibuat aman dan non‑destruktif — file penting akan di-*backup* jika sudah ada.
+> catatan: skrip `install.sh` dibuat aman dan non‑destruktif — file penting akan di-*backup* jika sudah ada.
 
 ## Fitur
 - One-line installer (bash) untuk paket esensial Termux
 - Backup otomatis dotfiles sebelum dibuat / di-*link*
 - Profile terpisah: `dev`, `lite`, `kde-vnc` (contoh)
-- Dokumentasi singkat menjalankan GUI via `proot-distro` + `termux-x11`
+- Dokumentasi singkat jalankan GUI via `proot-distro` + `termux-x11`
 - Panduan troubleshooting umum (storage, permission, Android 11+)
 
 ## Persyaratan
-- Termux terbaru (install dari F‑Droid direkomendasikan)
+- Termux terbaru download disini >> https://f-droid.org/packages/com.termux
 - Izin storage: jalankan `termux-setup-storage` sekali
-- Koneksi internet untuk mengunduh paket
-- Opsional: termux-x11 atau VNC client untuk mode GUI
+- Koneksi internet untuk unduh paket dngn baik
+- Opsional: termux-x11 atau VNC client untuk mode GUI jika kapan2 dibutuhkan
 
 ## Quick install (one-line)
 ```bash
